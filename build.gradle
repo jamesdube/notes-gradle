@@ -16,7 +16,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.jamesdube'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 sourceCompatibility = 1.8
 
 repositories {
@@ -36,6 +36,6 @@ dependencies {
 	runtimeOnly('mysql:mysql-connector-java')
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
 	testImplementation('org.springframework.security:spring-security-test')
-	testCompile group: 'com.h2database', name: 'h2', version: '1.3.148'
+	compile group: 'com.h2database', name: 'h2', version: '1.3.148'
 
 }

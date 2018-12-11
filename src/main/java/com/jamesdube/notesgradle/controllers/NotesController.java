@@ -26,6 +26,13 @@ public class NotesController {
     @GetMapping(value = "/notes")
     @ResponseStatus(HttpStatus.OK)
     public List<Note> index(){
-        return noteService.all();
+        List<Note> notes =  noteService.all();
+
+        for(Note note : notes){
+            System.out.println("TEXT ===============> " + note.getText());
+        }
+
+
+        return notes;
     }
 }

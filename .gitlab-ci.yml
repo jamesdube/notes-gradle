@@ -10,7 +10,9 @@ gradle-build:
   artifacts:
     paths:
       - build/libs/*.jar
+
 docker-build:
+  image: docker-dind
   stage: build
   script: "docker build -t notes-gradle:0.0.3 ."
 

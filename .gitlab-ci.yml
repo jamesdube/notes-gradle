@@ -2,10 +2,18 @@ image: openjdk:10-jre-slim
 
 stages:
   - build
+  - test
 
 gradle-build:
   stage: build
-  script: "./gradlew build"
+  script: "./gradlew build -x test"
   artifacts:
     paths:
       - build/libs/*.jar
+docker-build:
+  stage: build
+  script: "docker build -t notes-gradle:0.0.3 ."
+
+gradle-test:
+  stage: test
+  script: "./gradlew build -q test"

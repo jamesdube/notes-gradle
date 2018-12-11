@@ -12,7 +12,7 @@ gradle-build:
       - build/libs/*.jar
 
 docker-build:
-  image: docker-dind
+  image: docker
   stage: build
   script: "docker build -t notes-gradle:0.0.3 ."
 

@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.jamesdube.notesgradle.config.NotesGradleConfig;
 import com.jamesdube.notesgradle.controllers.NotesController;
 import com.jamesdube.notesgradle.domain.Note;
+import com.jamesdube.notesgradle.repositories.NotesRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,6 +21,8 @@ import org.springframework.web.context.WebApplicationContext;
 
 import javax.servlet.ServletContext;
 
+import java.util.Arrays;
+
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -34,6 +37,9 @@ public class IntegrationTests {
 
     @Autowired
     private WebApplicationContext webApplicationContext;
+
+    @Autowired
+    private NotesRepository notesRepository;
 
     private MockMvc mockMvc;
 
@@ -70,7 +76,11 @@ public class IntegrationTests {
     }
 
     @Test
-    public void itCanGetAllNotes()throws Exception{
+    public void itCanGetAllNotes() throws Exception{
+
+        notesRepository.saveAll(Arrays
+                .asList(new Note(1L,"neverland show cancelled"),new Note(2L,"Michael is a douche")));
+        Assert.assertEquals(2,notesRepository.findAll().size());
 
         this.mockMvc.perform(get("/notes")
                 .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
@@ -78,7 +88,7 @@ public class IntegrationTests {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").isArray())
                 .andExpect(jsonPath("$",hasSize(2)))
-                .andExpect(jsonPath("$[0].id").value(1));
+                .andExpect(jsonPath("$[0].text").value("neverland show cancelled"));
                 //.andExpect(jsonPath("$.text").value("a sample note"));
 
 

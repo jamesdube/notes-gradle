@@ -93,4 +93,22 @@ public class IntegrationTests {
                 .andExpect(jsonPath("$[?(@.text==\"Michael is a douche\")]").exists());
 
     }
+
+    @Test
+    public void itCanSearchNotes() throws Exception{
+
+        notesRepository.saveAll(Arrays
+                .asList(new Note(1L,"neverland show cancelled"),new Note(2L,"Michael is a douche"),
+                        new Note(3L,"foo"),new Note(4L,"foo")));
+        Assert.assertEquals(4,notesRepository.findAll().size());
+
+        this.mockMvc.perform(get("/notes?text=foo")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").isArray())
+                .andExpect(jsonPath("$", hasSize(2)))
+                .andExpect(jsonPath("$[?(@.text==\"foo\")]").exists());
+
+    }
 }

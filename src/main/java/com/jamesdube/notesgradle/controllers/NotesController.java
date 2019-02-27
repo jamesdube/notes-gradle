@@ -2,11 +2,15 @@ package com.jamesdube.notesgradle.controllers;
 
 import com.jamesdube.notesgradle.domain.Note;
 import com.jamesdube.notesgradle.services.NoteService;
+import com.jamesdube.notesgradle.utils.wrappers.NotesWrapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
+
+import static com.jamesdube.notesgradle.utils.wrappers.NotesWrapper.newInstance;
 
 @RestController
 public class NotesController {
@@ -25,14 +29,14 @@ public class NotesController {
 
     @GetMapping(value = "/notes")
     @ResponseStatus(HttpStatus.OK)
-    public List<Note> index(){
-        List<Note> notes =  noteService.all();
+    public List<Note> index(@RequestParam(required = false) String text){
 
-        for(Note note : notes){
-            System.out.println("TEXT ===============> " + note.getText());
-        }
+        NotesWrapper notesWrapper = generateWrapper(text);
 
+        return noteService.search(notesWrapper);
+    }
 
-        return notes;
+    private static NotesWrapper generateWrapper(String text){
+        return newInstance(text);
     }
 }

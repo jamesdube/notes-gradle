@@ -2,8 +2,12 @@ package com.jamesdube.notesgradle.services;
 
 import com.jamesdube.notesgradle.domain.Note;
 import com.jamesdube.notesgradle.repositories.NotesRepository;
+import com.jamesdube.notesgradle.utils.specification.NoteSpecification;
+import com.jamesdube.notesgradle.utils.wrappers.NotesWrapper;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public class NoteService {
 
@@ -27,5 +31,11 @@ public class NoteService {
 
     public List<Note> all() {
         return notesRepository.findAll();
+    }
+
+    public List<Note> search(NotesWrapper notesWrapper){
+
+        return notesRepository.findAll(NoteSpecification.filterByWrapper(notesWrapper));
+
     }
 }

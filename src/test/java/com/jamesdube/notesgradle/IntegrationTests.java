@@ -79,6 +79,7 @@ public class IntegrationTests {
     @Test
     public void itCanGetAllNotes() throws Exception{
 
+        notesRepository.deleteAll();
         notesRepository.saveAll(Arrays
                 .asList(new Note(1L,"neverland show cancelled"),new Note(2L,"Michael is a douche")));
         Assert.assertEquals(2,notesRepository.findAll().size());

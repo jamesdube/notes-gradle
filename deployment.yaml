@@ -1,0 +1,32 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: simplenotes-backend
+spec:
+  selector:
+    matchLabels:
+      app: simplenotes-backend
+  replicas: 1 # deployment runs 1 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: simplenotes-backend
+    spec:
+      containers:
+        - name: simplenotes-backend
+          image: jdube/simplenotes-backend:latest
+          ports:
+            - containerPort: 8080 #Endpoint is at port 8080 in the container
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: simplenotes-backend-service
+spec:
+  type: NodePort #Exposes the service as a node port
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: simplenotes-backend

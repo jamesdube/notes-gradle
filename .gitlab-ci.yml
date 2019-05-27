@@ -3,6 +3,7 @@ image: gradle:5.0.0-jdk8
 stages:
   - build
   - test
+  - package
 
 gradle-build:
   stage: build
@@ -10,7 +11,15 @@ gradle-build:
   artifacts:
     paths:
       - build/libs/*.jar
+      - gradle
 
 gradle-test:
   stage: test
   script: "./gradlew build -q test"
+
+docker-build:
+  stage: package
+  script:
+    - docker build -t jdube/simplenotes:$CI_COMMIT_SHORT_SHA .
+    - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+    - docker push jdube/simplenotes:$CI_COMMIT_SHORT_SHA

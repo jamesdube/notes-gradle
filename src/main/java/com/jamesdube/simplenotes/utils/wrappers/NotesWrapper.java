@@ -1,4 +1,4 @@
-package com.jamesdube.notesgradle.utils.wrappers;
+package com.jamesdube.simplenotes.utils.wrappers;
 
 public class NotesWrapper {
 

@@ -1,10 +1,10 @@
-package com.jamesdube.notesgradle;
+package com.jamesdube.simplenotes;
 
 import com.google.gson.Gson;
-import com.jamesdube.notesgradle.config.NotesGradleConfig;
-import com.jamesdube.notesgradle.controllers.NotesController;
-import com.jamesdube.notesgradle.domain.Note;
-import com.jamesdube.notesgradle.repositories.NotesRepository;
+import com.jamesdube.simplenotes.config.NotesGradleConfig;
+import com.jamesdube.simplenotes.controllers.NotesController;
+import com.jamesdube.simplenotes.domain.Note;
+import com.jamesdube.simplenotes.repositories.NotesRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +16,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 

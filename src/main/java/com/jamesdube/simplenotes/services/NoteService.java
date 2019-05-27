@@ -1,13 +1,11 @@
-package com.jamesdube.notesgradle.services;
+package com.jamesdube.simplenotes.services;
 
-import com.jamesdube.notesgradle.domain.Note;
-import com.jamesdube.notesgradle.repositories.NotesRepository;
-import com.jamesdube.notesgradle.utils.specification.NoteSpecification;
-import com.jamesdube.notesgradle.utils.wrappers.NotesWrapper;
-import org.springframework.data.jpa.domain.Specification;
+import com.jamesdube.simplenotes.domain.Note;
+import com.jamesdube.simplenotes.repositories.NotesRepository;
+import com.jamesdube.simplenotes.utils.specification.NoteSpecification;
+import com.jamesdube.simplenotes.utils.wrappers.NotesWrapper;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 public class NoteService {
 

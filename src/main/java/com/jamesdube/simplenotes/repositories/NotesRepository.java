@@ -1,7 +1,7 @@
-package com.jamesdube.notesgradle.repositories;
+package com.jamesdube.simplenotes.repositories;
 
 
-import com.jamesdube.notesgradle.domain.Note;
+import com.jamesdube.simplenotes.domain.Note;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

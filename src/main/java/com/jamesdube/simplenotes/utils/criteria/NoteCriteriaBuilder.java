@@ -1,12 +1,13 @@
-package com.jamesdube.notesgradle.utils.criteria;
+package com.jamesdube.simplenotes.utils.criteria;
 
-import com.jamesdube.notesgradle.domain.Note;
-import com.jamesdube.notesgradle.utils.wrappers.NotesWrapper;
+import com.jamesdube.simplenotes.domain.Note;
+import com.jamesdube.simplenotes.utils.wrappers.NotesWrapper;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.util.Date;
+import java.util.Arrays;
+import java.util.List;
 
 public class NoteCriteriaBuilder {
 
@@ -25,6 +26,22 @@ public class NoteCriteriaBuilder {
             wrapper.setStatus(null);
         }
     }*/
+
+    public Predicate foo(Root<Note> fromRoot, CriteriaBuilder criteriaBuilder, NotesWrapper notesWrapper){
+
+        List<String> attributes = Arrays.asList("text");
+        Predicate predicate = criteriaBuilder.conjunction();
+
+        for(String attribute:attributes) {
+
+            criteriaUtils.buildConjunctionPredicate(predicate, criteriaBuilder,
+                    criteriaBuilder.equal(fromRoot.get(attribute), "foo")
+            );
+
+        }
+        return predicate;
+
+    }
 
     public Predicate buildConjunctionPredicate(final Root<Note> root, final CriteriaBuilder criteriaBuilder, final NotesWrapper wrapper) {
         Predicate predicate = criteriaBuilder.conjunction();

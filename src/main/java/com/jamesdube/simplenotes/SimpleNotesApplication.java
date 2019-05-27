@@ -1,12 +1,12 @@
-package com.jamesdube.notesgradle;
+package com.jamesdube.simplenotes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NotesGradleApplication {
+public class SimpleNotesApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NotesGradleApplication.class, args);
+		SpringApplication.run(SimpleNotesApplication.class, args);
 	}
 }

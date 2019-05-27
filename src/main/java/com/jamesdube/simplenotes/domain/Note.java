@@ -1,4 +1,4 @@
-package com.jamesdube.notesgradle.domain;
+package com.jamesdube.simplenotes.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

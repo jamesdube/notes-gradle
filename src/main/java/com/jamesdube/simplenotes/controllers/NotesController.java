@@ -1,16 +1,14 @@
-package com.jamesdube.notesgradle.controllers;
+package com.jamesdube.simplenotes.controllers;
 
-import com.jamesdube.notesgradle.domain.Note;
-import com.jamesdube.notesgradle.services.NoteService;
-import com.jamesdube.notesgradle.utils.wrappers.NotesWrapper;
+import com.jamesdube.simplenotes.domain.Note;
+import com.jamesdube.simplenotes.services.NoteService;
+import com.jamesdube.simplenotes.utils.wrappers.NotesWrapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
-import static com.jamesdube.notesgradle.utils.wrappers.NotesWrapper.newInstance;
+import static com.jamesdube.simplenotes.utils.wrappers.NotesWrapper.newInstance;
 
 @RestController
 public class NotesController {

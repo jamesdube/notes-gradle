@@ -1,8 +1,8 @@
-package com.jamesdube.notesgradle.utils.specification;
+package com.jamesdube.simplenotes.utils.specification;
 
-import com.jamesdube.notesgradle.domain.Note;
-import com.jamesdube.notesgradle.utils.criteria.NoteCriteriaBuilder;
-import com.jamesdube.notesgradle.utils.wrappers.NotesWrapper;
+import com.jamesdube.simplenotes.domain.Note;
+import com.jamesdube.simplenotes.utils.criteria.NoteCriteriaBuilder;
+import com.jamesdube.simplenotes.utils.wrappers.NotesWrapper;
 import org.springframework.data.jpa.domain.Specification;
 
 public class NoteSpecification {

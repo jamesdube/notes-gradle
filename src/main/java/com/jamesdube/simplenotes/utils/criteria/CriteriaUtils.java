@@ -1,4 +1,4 @@
-package com.jamesdube.notesgradle.utils.criteria;
+package com.jamesdube.simplenotes.utils.criteria;
 
 import org.apache.commons.lang3.StringUtils;
 

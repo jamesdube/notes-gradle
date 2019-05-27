@@ -1,4 +1,4 @@
-package com.jamesdube.notesgradle;
+package com.jamesdube.simplenotes;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

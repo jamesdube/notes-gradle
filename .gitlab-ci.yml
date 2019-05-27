@@ -1,21 +1,18 @@
-image: gradle:5.0.0-jdk8
+image: docker:latest
+services:
+  - docker:dind
 
 stages:
   - build
-  - test
   - package
 
 gradle-build:
+  image: gradle:5.0.0-jdk8
   stage: build
-  script: "./gradlew build -x test"
+  script: "./gradlew build"
   artifacts:
     paths:
       - build/libs/*.jar
-      - gradle
-
-gradle-test:
-  stage: test
-  script: "./gradlew build -q test"
 
 docker-build:
   stage: package

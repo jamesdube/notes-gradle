@@ -5,6 +5,8 @@ steps:
 - name: build
   image: gradle:5.0.0-jdk8
   commads:
+  - echo $JAVA_HOME
+  - java -version
   - gradle build
   
 - name: test

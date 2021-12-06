@@ -2,7 +2,7 @@ kind: pipeline
 name: default
 
 steps:
-- name: test
+- name: testing
   image: gradle:jdk10
   commands:
   - gradle assemble

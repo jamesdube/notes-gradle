@@ -2,8 +2,8 @@ kind: pipeline
 name: default
 
 steps:
-- name: testing
-  image: gradle:jdk10
+- name: test
+  image: gradle:jdk8
   commands:
   - gradle assemble
   - gradle check

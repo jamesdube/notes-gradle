@@ -1,13 +1,14 @@
 kind: pipeline
 name: default
-image: gradle:5.0.0-jdk8
 
 steps:
 - name: build
+  image: gradle:5.0.0-jdk8
   commads:
   - gradle build
   
 - name: test
+  image: gradle:5.0.0-jdk8
   commands:
   - gradle assemble
   - gradle check
